@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Задание 2</h1>
+    <h3>Гуглила: обратные кавычки ${} JS, полиморфизм JavaScript пример</h3>
+    <script>
+        class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} издаёт звук`);
+  }
+}
+
+class Cat extends Animal {
+  speak() {
+    console.log(`${this.name} говорит: Мяу`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} говорит: Гав`);
+  }
+
+  fetch() {
+    console.log(`${this.name} принёс палку`);
+  }
+}
+
+const animals = [
+  new Animal("Зверь"),
+  new Cat("Барсик"),
+  new Cat("Мурка"),
+  new Dog("Рекс"),
+];
+
+for (const animal of animals) {
+  animal.speak();
+}
+
+animals[3].fetch();
+    </script>
+</body>
+</html>

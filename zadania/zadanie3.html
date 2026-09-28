@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Задание 3</h1>
+    <h3>Гуглила как создать класс Task в JavaScript, как изменить поле объекта в методе JS</h3>
+    <script>
+        class Task {
+    constructor(title) {
+        this.title = title;
+        this.done = false;
+    }
+
+    complete() {
+        this.done = true;
+    }
+
+    toString() {
+        if (this.done) {
+            return "[x] " + this.title;
+        } else {
+            return "[ ] " + this.title;
+        }
+    }
+}
+
+class TodoList {
+    constructor() {
+        this.tasks = [];
+    }
+
+    add(title) {
+        const task = new Task(title);
+        this.tasks.push(task);
+    }
+
+    complete(index) {
+        this.tasks[index].complete();
+    }
+
+    print() {
+        for (const task of this.tasks) {
+            console.log(task.toString());
+        }
+    }
+
+    countDone() {
+        let count = 0;
+
+        for (const task of this.tasks) {
+            if (task.done) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
+
+const todo = new TodoList();
+
+todo.add("Купить хлеб");
+todo.add("Сделать зарядку");
+todo.add("Поиграть в комп");
+
+todo.complete(0);
+todo.complete(2);
+
+todo.print();
+
+console.log("Выполнено:", todo.countDone());
+    </script>
+</body>
+</html>

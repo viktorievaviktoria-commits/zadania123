@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Задание 1</h1>
+    <h3>Загуглила как вернуть значение из функции JS</h3>
+    <h3></h3>
+    <script>
+        class PiggyBank {
+  #balance = 0;
+
+  put(amount) {
+    if (amount <= 0) {
+      console.log("Некорректная сумма");
+      return;
+    }
+    this.#balance += amount;
+  }
+
+  take(amount) {
+    if (amount > this.#balance) {
+      console.log("Недостаточно средств");
+      return;
+    }
+    this.#balance -= amount;
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const piggyBank = new PiggyBank();
+
+piggyBank.put(100);
+piggyBank.put(50);
+piggyBank.take(30);
+
+console.log(piggyBank.getBalance()); 
+
+piggyBank.take(1000); 
+piggyBank.put(-5);    
+
+console.log(piggyBank.getBalance()); 
+    </script>
+
+</body>
+</html>
